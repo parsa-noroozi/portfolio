@@ -268,7 +268,59 @@ body {
 
 }
 
+/* ===== Evidence Strip ===== */
 
+.evidence {
+    padding: 4rem 0;
+}
+
+.evidence-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 2rem;
+
+}
+
+.evidence-card {
+
+    text-align: center;
+
+    padding: 1.5rem;
+
+}
+
+.evidence-card:not(:last-child) {
+
+    border-right: 1px solid var(--color-border);
+
+}
+
+.evidence-value {
+
+    font-size: clamp(1.8rem, 3vw, 2.5rem);
+
+    font-weight: 700;
+
+    line-height: 1;
+
+    margin-bottom: .5rem;
+
+}
+
+.evidence-label {
+
+    font-size: .95rem;
+
+    color: var(--color-text-muted);
+
+    text-transform: uppercase;
+
+    letter-spacing: .08em;
+
+}
 
 @media (max-width:768px) {
 
@@ -318,6 +370,32 @@ body {
 
     }
 
+    .evidence-grid {
 
+        grid-template-columns: 1fr;
+
+        gap: 1.5rem;
+
+    }
+
+    .evidence-card {
+
+        padding: 1rem;
+
+    }
+
+    .evidence-card {
+
+        border-right: none;
+
+        border-bottom: 1px solid var(--color-border);
+
+    }
+
+    .evidence-card:last-child {
+
+        border-bottom: none;
+
+    }
 
 }
