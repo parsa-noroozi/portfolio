@@ -1,57 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<!-- ========================================= -->
+<!-- Head -->
+<!-- ========================================= -->
+
 <head>
+
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>PNB | Portfolio</title>
+
     <link rel="stylesheet" href="assets/css/variables.css">
+
     <link rel="stylesheet" href="assets/css/style.css">
+
     <link rel="stylesheet" href="assets/css/responsive.css">
 
 </head>
 
 <body id="top">
+
+    <!-- ========================================= -->
+    <!-- Header -->
+    <!-- ========================================= -->
+
     <header class="site-header">
+
         <nav class="navbar">
-            <a href="#top" class="brand">
-                PNB.
-            </a>
-            <ul class="nav-links">
-                <li><a href="#work">Work</a></li>
-                <li><a href="#research">Research</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#timeline">Timeline</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-            <a href="assets/documents/cv.pdf" class="resume-button">
-                CV
-            </a>
-            <button class="menu-button" aria-label="Open navigation menu">
 
-                ☰
+            <div class="nav-container">
 
-            </button>
+                <!-- Brand -->
 
-            <div class="hero-signature">
+                <a href="#top" class="brand">
+                    PNB.
+                </a>
 
-                <p class="hero-name">— PNB</p>
+                <!-- Navigation -->
 
-                <p class="hero-role">
-                    Computer Science Student
-                </p>
+                <ul class="nav-links">
+
+                    <li><a href="#work">Work</a></li>
+
+                    <li><a href="#research">Research</a></li>
+
+                    <li><a href="#about">About</a></li>
+
+                    <li><a href="#timeline">Timeline</a></li>
+
+                    <li><a href="#contact">Contact</a></li>
+
+                    <li class="nav-divider"></li>
+
+                    <li><a href="assets/documents/cv.pdf">CV</a></li>
+
+                </ul>
+
+                <!-- Mobile Menu -->
+
+                <button class="menu-button" aria-label="Open navigation menu">
+
+                    <span></span>
+
+                    <span></span>
+
+                    <span></span>
+
+                </button>
 
             </div>
 
         </nav>
 
     </header>
-    <script src="assets/js/main.js"></script>
+
+    <!-- ========================================= -->
+    <!-- Main -->
+    <!-- ========================================= -->
+
     <main>
+
+        <!-- ========================================= -->
+        <!-- Hero -->
+        <!-- ========================================= -->
 
         <section class="hero">
 
             <div class="container">
+
+                <!-- Hero Content -->
 
                 <div class="hero-content">
 
@@ -80,7 +120,27 @@
 
                     </div>
 
+                    <!-- Hero Signature -->
+
+                    <div class="hero-signature">
+
+                        <p class="hero-quote">
+                            Built with curiosity.
+                        </p>
+
+                        <p class="hero-name">
+                            — PNB
+                        </p>
+
+                        <p class="hero-role">
+                            Computer Science Student
+                        </p>
+
+                    </div>
+
                 </div>
+
+                <!-- Hero Image -->
 
                 <div class="hero-image">
 
@@ -92,6 +152,10 @@
 
         </section>
 
+        <!-- ========================================= -->
+        <!-- Evidence -->
+        <!-- ========================================= -->
+
         <section class="evidence">
 
             <div class="container">
@@ -100,7 +164,9 @@
 
                     <article class="evidence-card">
 
-                        <p class="evidence-value">15+</p>
+                        <p class="evidence-value">
+                            15+
+                        </p>
 
                         <p class="evidence-label">
                             Projects Built
@@ -138,6 +204,10 @@
 
         </section>
 
+        <!-- ========================================= -->
+        <!-- Selected Work -->
+        <!-- ========================================= -->
+
         <section id="work" class="selected-work">
 
             <div class="container">
@@ -153,14 +223,19 @@
                 </header>
 
                 <div class="projects">
+
                     <article class="project">
 
-                        <p class="project-number">01</p>
-
-                        <p class="project-outcome">43%</p>
+                        <p class="project-number">
+                            01
+                        </p>
 
                         <p class="project-outcome">
-                             Lower Inference Latency
+                            43%
+                        </p>
+
+                        <p class="project-outcome">
+                            Lower Inference Latency
                         </p>
 
                         <h3 class="project-title">
@@ -168,55 +243,81 @@
                         </h3>
 
                         <div class="project-content">
+
                             <div class="project-info">
+
                                 <section class="project-summary">
+
                                     <div class="summary-item">
+
                                         <h4>Challenge</h4>
 
                                         <p>
                                             Latency + power limits
                                         </p>
+
                                     </div>
 
                                     <div class="summary-item">
+
                                         <h4>Approach</h4>
 
                                         <p>
                                             ONNX + Quantization
                                         </p>
+
                                     </div>
 
                                     <div class="summary-item">
+
                                         <h4>Impact</h4>
 
                                         <p>
                                             43% lower latency
                                         </p>
+
                                     </div>
+
                                 </section>
 
                                 <ul class="project-stack">
+
                                     <li>Python</li>
+
                                     <li>PyTorch</li>
+
                                     <li>ONNX</li>
+
                                     <li>Docker</li>
+
                                 </ul>
 
                                 <div class="project-links">
-                                    <a href="#">Read Case Study</a>
 
-                                    <a href="#">GitHub</a>
+                                    <a href="#">
+                                        Read Case Study
+                                    </a>
+
+                                    <a href="#">
+                                        GitHub
+                                    </a>
+
                                 </div>
+
                             </div>
 
                             <div class="project-preview">
 
-                                <span>Coming Soon</span>
+                                <span>
+                                    Coming Soon
+                                </span>
 
                             </div>
+
                         </div>
 
                     </article>
+
                 </div>
 
             </div>
@@ -224,6 +325,13 @@
         </section>
 
     </main>
+
+    <!-- ========================================= -->
+    <!-- JavaScript -->
+    <!-- ========================================= -->
+
+    <script src="assets/js/main.js"></script>
+
 </body>
 
 </html>

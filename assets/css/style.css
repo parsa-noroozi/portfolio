@@ -19,73 +19,190 @@ body {
 
 /* ===== Navbar ===== */
 
-.site-header {
-    position: sticky;
-    top: 0;
-    z-index: 1000;
+.site-header{
+
+    position:fixed;
+
+    top:1.25rem;
+
+    left:0;
+
+    width:100%;
+
+    z-index:1000;
+
+    pointer-events:none;
+
 }
 
-.navbar {
-    max-width: var(--container-width);
-    margin: 0 auto;
+.navbar{
 
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    display:flex;
 
-    padding: var(--space-4) var(--space-6);
+    justify-content:center;
+
+    width:100%;
+
+    pointer-events:none;
+
 }
 
-.brand {
-    text-decoration: none;
-    color: var(--color-text);
+.nav-container{
 
-    font-size: 1.25rem;
-    font-weight: var(--font-weight-bold);
+    display:flex;
 
-    transition: var(--transition);
+    align-items:center;
+
+    justify-content:space-between;
+
+    width:min(930px, calc(100% - 2rem));
+
+    padding:.85rem 2rem;
+
+    background:rgba(255,255,255,.9);
+
+    border:1px solid var(--color-border);
+
+    border-radius:999px;
+
+    box-shadow:0 10px 30px rgba(15,23,42,.06);
+
+    transition:
+    background-color .25s ease,
+    backdrop-filter .25s ease,
+    box-shadow .25s ease,
+    border-color .25s ease,
+    transform .25s ease;
+
+    pointer-events:auto;
+
+}
+
+.nav-divider{
+
+    width:1px;
+
+    height:20px;
+
+    margin:0 .75rem;
+
+    background:var(--color-border);
+
+    list-style:none;
+
+}
+
+.brand{
+
+    text-decoration:none;
+
+    color:var(--color-text);
+
+    font-size:1.05rem;
+
+    font-weight:700;
+
+    letter-spacing:-0.02em;
+
+    transition:var(--transition);
+
+    
+
 }
 
 .brand:hover {
     color: var(--color-accent-hover);
 }
 
-.nav-links {
-    display: flex;
-    gap: var(--space-6);
+.nav-links{
 
-    list-style: none;
+    display:flex;
+
+    align-items:center;
+
+    gap:1.6rem;
+
+    margin:0;
+
+    padding:0;
+
+    list-style:none;
+
 }
 
-.nav-links a {
-    text-decoration: none;
-    color: var(--color-text-muted);
+.nav-links a{
 
-    transition: var(--transition);
+    text-decoration:none;
+
+    color:var(--color-text-muted);
+
+    font-size:.95rem;
+
+    font-weight:500;
+
+    transition:var(--transition);
+
 }
 
 .nav-links a:hover {
     color: var(--color-text);
 }
 
+.menu-button{
 
+    display:none;
 
-.resume-button {
-    text-decoration: none;
+    width:48px;
 
-    color: var(--color-text);
+    height:48px;
 
-    border: 1px solid var(--color-border);
+    padding:0;
 
-    border-radius: var(--radius-md);
+    border:none;
 
-    padding: var(--space-2) var(--space-4);
+    background:none;
 
-    transition: var(--transition);
+    cursor:pointer;
+
+    align-items:center;
+
+    justify-content:center;
+
+    flex-direction:column;
+
+    gap:5px;
+
 }
 
-.resume-button:hover {
-    background: var(--color-accent);
+.menu-button span{
+
+    width:20px;
+
+    height:2px;
+
+    background:var(--color-text);
+
+    border-radius:999px;
+
+    transition:var(--transition);
+
+}
+
+.nav-container.scrolled{
+
+    background:rgba(255,255,255,.82);
+
+    backdrop-filter:blur(18px);
+
+    -webkit-backdrop-filter:blur(18px);
+
+    border-color:rgba(15,23,42,.08);
+
+    box-shadow:
+        0 14px 36px rgba(15,23,42,.10);
+
+    transform:translateY(-2px);
+
 }
 
 /* ===== Hero ===== */
@@ -95,6 +212,8 @@ body {
 
     display: flex;
     align-items: center;
+
+    padding-top:6rem;
 
     background:
         linear-gradient(180deg,
@@ -117,6 +236,7 @@ body {
     gap: 4rem;
 
     align-items: center;
+
 
 }
 
@@ -158,9 +278,23 @@ body {
 
 }
 
-.hero-signature {
+.hero-signature{
 
-    margin-top: 3rem;
+    margin-top: 6rem;
+
+    margin-left: 1.5rem;
+
+}
+
+.hero-quote{
+
+    font-size:.95rem;
+
+    color:var(--color-text-muted);
+
+    margin-bottom:.5rem;
+
+    font-style:italic;
 
 }
 
@@ -402,31 +536,31 @@ body {
 
 .project-info {}
 
-.project-preview{
+.project-preview {
 
-    display:flex;
+    display: flex;
 
-    justify-content:center;
+    justify-content: center;
 
-    align-items:center;
+    align-items: center;
 
-    min-height:260px;
+    min-height: 260px;
 
-    border:1px solid var(--color-border);
+    border: 1px solid var(--color-border);
 
-    border-radius:var(--radius-lg);
+    border-radius: var(--radius-lg);
 
 }
 
-.project-preview span{
+.project-preview span {
 
-    font-size:.85rem;
+    font-size: .85rem;
 
-    color:var(--color-text-muted);
+    color: var(--color-text-muted);
 
-    letter-spacing:.08em;
+    letter-spacing: .08em;
 
-    text-transform:uppercase;
+    text-transform: uppercase;
 
 }
 
@@ -590,7 +724,7 @@ body {
 
     .menu-button {
 
-        display: block;
+        display: flex;
 
     }
 
