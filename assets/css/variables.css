@@ -50,5 +50,17 @@
 
     /* ===== Animation ===== */
 
+    /* ===== Research / Editorial ===== */
+    --font-label: 0.78rem;
+    --font-meta: 0.875rem;
+    --font-title-min: 1.5rem;
+    --font-title-fluid: calc(1.25rem + 1vw);
+    --font-title-max: 1.9rem;
+
+    --leading-tight: 1.2;
+    --leading-editorial: 1.8;
+
+    --measure-editorial: 760px;
+
     --transition: 0.25s ease;
 }
