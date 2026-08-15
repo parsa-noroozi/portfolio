@@ -679,6 +679,158 @@ body {
 
 }
 
+/* =======================================================
+   Research Section
+   Design Language: Editorial (no cards, no shadows, no borders)
+   Contrast with Selected Works, which uses a card-based language.
+   ======================================================= */
+
+
+/* =======================================================
+   List
+   ======================================================= */
+
+.research-list{
+
+    display:flex;
+    flex-direction:column;
+    gap:var(--space-16);
+
+}
+
+/* =======================================================
+   Item
+   ======================================================= */
+
+.research-item{
+
+    max-width:var(--measure-editorial);
+
+}
+
+/* =======================================================
+   Title
+   ======================================================= */
+
+.research-title{
+
+    font-size:clamp(
+        var(--font-title-min),
+        var(--font-title-fluid),
+        var(--font-title-max)
+    );
+
+    font-weight:600;
+
+    line-height:var(--leading-tight);
+
+    letter-spacing:-0.02em;
+
+    color:var(--color-text);
+
+    transition: var(--transition);
+
+}
+
+/* =======================================================
+   Meta
+   ======================================================= */
+
+.research-meta{
+
+    margin-top:var(--space-2);
+
+    margin-bottom:var(--space-12);
+
+    font-size:var(--font-meta);
+
+    font-weight:500;
+
+    color:var(--color-text-muted);
+
+    transition: var(--transition);
+
+}
+
+/* =======================================================
+   Breakdown
+   ======================================================= */
+
+.research-breakdown {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+}
+
+/* =======================================================
+   Block
+   ======================================================= */
+
+.research-block .block-label {
+    font-weight: 600;
+    color: var(--color-text);
+    margin-right: .35em;
+}
+
+.research-block{
+
+    font-size:var(--font-size-base);
+
+    line-height:var(--leading-editorial);
+
+    color:var(--color-text);
+
+}
+
+/* =======================================================
+   Footer
+   ======================================================= */
+
+.research-footer{
+
+    margin-top:var(--space-6);
+
+}
+
+/* =======================================================
+   Footer Link
+   ======================================================= */
+
+.research-footer a{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:.25rem;
+
+    color:inherit;
+
+    text-decoration:none;
+
+}
+
+.research-footer .arrow{
+
+    display:inline-block;
+
+    transition: var(--transition);
+
+}
+
+.research-footer a:hover .arrow,
+.research-footer a:focus-visible .arrow{
+
+    transform:translateX(4px);
+
+}
+
+.research-footer a:hover,
+.research-footer a:focus-visible {
+    color: var(--color-accent-hover);
+}
+
+
 
 @media (max-width:768px) {
 
