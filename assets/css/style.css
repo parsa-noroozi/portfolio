@@ -894,6 +894,39 @@ body {
     color: var(--color-text-muted);
 }
 
+
+/* ===== About ===== */
+
+.about {
+    padding: 6rem 0;
+    scroll-margin-top: 7rem;
+}
+
+.about-content {
+    max-width: var(--measure-editorial);
+}
+
+.about-text {
+    line-height: var(--leading-editorial);
+    margin-bottom: var(--space-6);
+}
+
+.about-text:last-child {
+    margin-bottom: 0;
+}
+
+.pull-quote {
+    font-size: 1.2rem;
+    font-style: italic;
+    font-weight: 500;
+    line-height: 1.6;
+    color: var(--color-text);
+    border-left: 2px solid var(--color-accent);
+    padding-left: var(--space-6);
+    margin: var(--space-8) 0;
+}
+
+
 @media (max-width:768px) {
 
     .hero .container {
