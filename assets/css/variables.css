@@ -61,6 +61,10 @@
     --leading-editorial: 1.8;
 
     --measure-editorial: 760px;
+    
+    /* ===== Timeline ===== */
+    --font-mono: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
 
     --transition: 0.25s ease;
+
 }
