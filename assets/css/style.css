@@ -926,6 +926,62 @@ body {
     margin: var(--space-8) 0;
 }
 
+/* ===== Contact ===== */
+
+.contact {
+    padding: 8rem 0 6rem;
+    scroll-margin-top: 7rem;
+}
+
+.contact-content {
+    max-width: var(--measure-editorial);
+    margin-inline: auto;
+    text-align: center;
+}
+
+.contact-heading {
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    font-weight: 600;
+    margin-bottom: var(--space-4);
+}
+
+.contact-sub {
+    color: var(--color-text-muted);
+    line-height: 1.6;
+    margin-bottom: var(--space-8);
+}
+
+.contact-email {
+    margin-bottom: var(--space-8);
+}
+
+.contact-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--space-3);
+    font-size: .9rem;
+}
+
+.contact-links a {
+    color: var(--color-text-muted);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.contact-links a:hover,
+.contact-links a:focus-visible {
+    color: var(--color-text);
+}
+
+/* ===== Site Footer ===== */
+
+.site-footer {
+    text-align: center;
+    padding: 2rem 0;
+    font-size: .8rem;
+    color: var(--color-text-muted);
+}
 
 @media (max-width:768px) {
 
