@@ -8,6 +8,7 @@
 
 html {
     scroll-behavior: smooth;
+    scroll-padding-top: var(--scroll-offset);
 }
 
 body {
@@ -703,9 +704,7 @@ body {
    ======================================================= */
 
 .research-item{
-
     max-width:var(--measure-editorial);
-
 }
 
 /* =======================================================
@@ -881,9 +880,6 @@ body {
     line-height: 1.6;
 }
 
-.timeline {
-    scroll-margin-top: 2rem;
-}
 
 .timeline .section-header {
     margin-bottom: var(--space-12);
@@ -899,7 +895,6 @@ body {
 
 .about {
     padding: 6rem 0;
-    scroll-margin-top: 7rem;
 }
 
 .about-content {
@@ -930,7 +925,6 @@ body {
 
 .contact {
     padding: 8rem 0 6rem;
-    scroll-margin-top: 7rem;
 }
 
 .contact-content {
