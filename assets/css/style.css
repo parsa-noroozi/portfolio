@@ -686,6 +686,9 @@ body {
    Contrast with Selected Works, which uses a card-based language.
    ======================================================= */
 
+.research {
+    padding: 6rem 0;
+}
 
 /* =======================================================
    List
