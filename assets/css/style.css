@@ -73,7 +73,7 @@ body {
         backdrop-filter .25s ease,
         box-shadow .25s ease,
         border-color .25s ease,
-        transform .25s ease;
+        transform .45s ease;
 
     pointer-events: auto;
 
@@ -204,6 +204,11 @@ body {
 
     transform: translateY(-2px);
 
+}
+
+.nav-container.nav-hidden {
+    transform: translateY(calc(-100% - 2rem));
+    transition: transform .55s ease;
 }
 
 /* ===== Hero ===== */
