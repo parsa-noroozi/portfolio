@@ -1,16 +1,61 @@
 const navContainer = document.querySelector(".nav-container");
 
-window.addEventListener("scroll", () => {
+let lastScrollY = window.scrollY;
+let isAnchorNavigation = false;
 
-    if (window.scrollY > 80) {
+document.querySelectorAll(
+    '.nav-links a[href^="#"], .mobile-navigation a[href^="#"], .brand'
+).forEach((link) => {
 
-        navContainer.classList.add("scrolled");
+    link.addEventListener("click", () => {
 
-    } else {
+        isAnchorNavigation = true;
 
-        navContainer.classList.remove("scrolled");
+        navContainer.classList.remove("nav-hidden");
+
+    });
+
+});
+
+window.addEventListener("scrollend", () => {
+
+    if (isAnchorNavigation) {
+
+        isAnchorNavigation = false;
+        lastScrollY = window.scrollY;
+        navContainer.classList.remove("nav-hidden");
 
     }
+
+});
+
+window.addEventListener("scroll", () => {
+
+    const currentScrollY = window.scrollY;
+
+    if (currentScrollY > 80) {
+        navContainer.classList.add("scrolled");
+    } else {
+        navContainer.classList.remove("scrolled");
+    }
+
+    const scrollDifference = currentScrollY - lastScrollY;
+
+if (!isAnchorNavigation) {
+
+    if (scrollDifference > 40 && currentScrollY > 120) {
+
+        navContainer.classList.add("nav-hidden");
+        lastScrollY = currentScrollY;
+
+    } else if (scrollDifference < -40) {
+
+        navContainer.classList.remove("nav-hidden");
+        lastScrollY = currentScrollY;
+
+    }
+
+}
 
 });
 
