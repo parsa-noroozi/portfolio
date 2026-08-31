@@ -123,3 +123,39 @@ function resetMobileMenu() {
 }
 
 mobileBreakpoint.addEventListener("change", resetMobileMenu);
+
+/* ===== Scroll Reveal ===== */
+
+const revealElements = document.querySelectorAll(".reveal");
+
+if (!("IntersectionObserver" in window)) {
+
+    revealElements.forEach((element) => {
+        element.classList.add("is-visible");
+    });
+
+} else {
+
+    const revealObserver = new IntersectionObserver(
+        (entries, observer) => {
+
+            entries.forEach((entry) => {
+
+                if (!entry.isIntersecting) return;
+
+                entry.target.classList.add("is-visible");
+                observer.unobserve(entry.target);
+
+            });
+
+        },
+        {
+            threshold: 0,
+            rootMargin: "0px 0px -15% 0px"
+        }
+    );
+
+    revealElements.forEach((element) => {
+        revealObserver.observe(element);
+    });
+}

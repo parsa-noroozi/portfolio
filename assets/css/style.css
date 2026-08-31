@@ -1194,6 +1194,21 @@ body {
 
 }
 
+/* ===== Scroll Reveal ===== */
+
+.reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition:
+        opacity .6s cubic-bezier(.22, .61, .36, 1),
+        transform .6s cubic-bezier(.22, .61, .36, 1);
+}
+
+.reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 @media (prefers-reduced-motion: reduce) {
 
     *,
@@ -1205,4 +1220,8 @@ body {
         scroll-behavior: auto !important;
     }
 
+    .reveal {
+        opacity: 1;
+        transform: none;
+    }
 }
