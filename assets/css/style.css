@@ -81,20 +81,6 @@ body {
 
 }
 
-.nav-divider {
-
-    width: 1px;
-
-    height: 20px;
-
-    margin: 0 .75rem;
-
-    background: var(--color-border);
-
-    list-style: none;
-
-}
-
 .brand {
 
     text-decoration: none;
@@ -644,44 +630,6 @@ body {
     font-size: .85rem;
 
     color: var(--color-text-muted);
-
-}
-
-.project-links {
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 1.5rem;
-
-}
-
-.project-links a {
-
-    text-decoration: none;
-
-    color: var(--color-text);
-
-    transition: color .2s ease;
-
-}
-
-.project-links a:first-child {
-
-    font-weight: 600;
-
-}
-
-.project-links a:last-child {
-
-    color: var(--color-text-muted);
-
-}
-
-.project-links a:hover {
-
-    color: var(--color-accent);
 
 }
 
