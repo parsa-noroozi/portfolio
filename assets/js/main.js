@@ -1,128 +1,173 @@
+/* ===== Navbar ===== */
+
 const navContainer = document.querySelector(".nav-container");
+const menuButton = document.querySelector(".menu-button");
+const mobileNavigation = document.querySelector(".mobile-navigation");
+const mobileNavigationLinks = mobileNavigation.querySelectorAll("a");
+const brand = document.querySelector(".brand");
+
+const mobileBreakpoint = window.matchMedia("(max-width: 768px)");
 
 let lastScrollY = window.scrollY;
 let isAnchorNavigation = false;
+let anchorNavigationTimeout;
+
+
+/* ===== Mobile Menu ===== */
+
+function closeMobileMenu({ returnFocus = false } = {}) {
+    menuButton.setAttribute("aria-expanded", "false");
+    menuButton.setAttribute("aria-label", "Open navigation menu");
+
+    mobileNavigation.classList.remove("is-open");
+
+    if (returnFocus) {
+        menuButton.focus();
+    }
+}
+
+
+function openMobileMenu() {
+    menuButton.setAttribute("aria-expanded", "true");
+    menuButton.setAttribute("aria-label", "Close navigation menu");
+
+    mobileNavigation.classList.add("is-open");
+
+    navContainer.classList.remove("nav-hidden");
+}
+
+
+menuButton.addEventListener("click", () => {
+    const isOpen =
+        menuButton.getAttribute("aria-expanded") === "true";
+
+    if (isOpen) {
+        closeMobileMenu();
+    } else {
+        openMobileMenu();
+    }
+});
+
+
+brand.addEventListener("click", () => {
+    closeMobileMenu();
+});
+
+
+mobileNavigationLinks.forEach((link) => {
+    link.addEventListener("click", () => {
+        closeMobileMenu();
+    });
+});
+
+
+document.addEventListener("keydown", (event) => {
+    if (event.key !== "Escape") return;
+
+    const isOpen =
+        menuButton.getAttribute("aria-expanded") === "true";
+
+    if (!isOpen) return;
+
+    closeMobileMenu({ returnFocus: true });
+});
+
+
+function resetMobileMenu() {
+    if (!mobileBreakpoint.matches) {
+        closeMobileMenu();
+    }
+}
+
+
+mobileBreakpoint.addEventListener("change", resetMobileMenu);
+
+
+/* ===== Anchor Navigation ===== */
 
 document.querySelectorAll(
     '.nav-links a[href^="#"], .mobile-navigation a[href^="#"], .brand'
 ).forEach((link) => {
 
     link.addEventListener("click", () => {
-
         isAnchorNavigation = true;
 
         navContainer.classList.remove("nav-hidden");
 
+        clearTimeout(anchorNavigationTimeout);
+
+        /*
+         * Keep the navbar visible while smooth scrolling to
+         * an anchor. Using a timeout avoids depending entirely
+         * on the scrollend event.
+         */
+        anchorNavigationTimeout = window.setTimeout(() => {
+            isAnchorNavigation = false;
+            lastScrollY = window.scrollY;
+        }, 1000);
     });
 
 });
+
 
 window.addEventListener("scrollend", () => {
+    if (!isAnchorNavigation) return;
 
-    if (isAnchorNavigation) {
+    clearTimeout(anchorNavigationTimeout);
 
-        isAnchorNavigation = false;
-        lastScrollY = window.scrollY;
-        navContainer.classList.remove("nav-hidden");
+    isAnchorNavigation = false;
+    lastScrollY = window.scrollY;
 
-    }
-
+    navContainer.classList.remove("nav-hidden");
 });
 
-window.addEventListener("scroll", () => {
 
-    const currentScrollY = window.scrollY;
+/* ===== Navbar Scroll Behavior ===== */
 
-    if (currentScrollY > 80) {
-        navContainer.classList.add("scrolled");
-    } else {
-        navContainer.classList.remove("scrolled");
-    }
+window.addEventListener(
+    "scroll",
+    () => {
+        const currentScrollY = window.scrollY;
 
-    const scrollDifference = currentScrollY - lastScrollY;
+        if (currentScrollY > 80) {
+            navContainer.classList.add("scrolled");
+        } else {
+            navContainer.classList.remove("scrolled");
+        }
 
-if (!isAnchorNavigation) {
+        const isMobileMenuOpen =
+            menuButton.getAttribute("aria-expanded") === "true";
 
-    if (scrollDifference > 40 && currentScrollY > 120) {
+        /*
+         * Never hide the navbar while:
+         * - navigating to an anchor
+         * - the mobile menu is open
+         */
+        if (isAnchorNavigation || isMobileMenuOpen) {
+            navContainer.classList.remove("nav-hidden");
+            lastScrollY = currentScrollY;
+            return;
+        }
 
-        navContainer.classList.add("nav-hidden");
-        lastScrollY = currentScrollY;
+        const scrollDifference =
+            currentScrollY - lastScrollY;
 
-    } else if (scrollDifference < -40) {
+        if (
+            scrollDifference > 40 &&
+            currentScrollY > 120
+        ) {
+            navContainer.classList.add("nav-hidden");
+            lastScrollY = currentScrollY;
 
-        navContainer.classList.remove("nav-hidden");
-        lastScrollY = currentScrollY;
+        } else if (scrollDifference < -40) {
 
-    }
+            navContainer.classList.remove("nav-hidden");
+            lastScrollY = currentScrollY;
+        }
+    },
+    { passive: true }
+);
 
-}
-
-});
-
-const menuButton = document.querySelector(".menu-button");
-
-const mobileNavigation = document.querySelector(".mobile-navigation");
-
-const mobileNavigationLinks = mobileNavigation.querySelectorAll("a");
-
-const brand = document.querySelector(".brand");
-
-menuButton.addEventListener("click", () => {
-
-    const isOpen = menuButton.getAttribute("aria-expanded") === "true";
-
-    menuButton.setAttribute("aria-expanded", String(!isOpen));
-
-    menuButton.setAttribute(
-        "aria-label",
-        isOpen ? "Open navigation menu" : "Close navigation menu"
-    );
-
-    mobileNavigation.classList.toggle("is-open", !isOpen);
-
-});
-
-brand.addEventListener("click", () => {
-
-    menuButton.setAttribute("aria-expanded", "false");
-
-    menuButton.setAttribute("aria-label", "Open navigation menu");
-
-    mobileNavigation.classList.remove("is-open");
-
-});
-
-mobileNavigationLinks.forEach((link) => {
-
-    link.addEventListener("click", () => {
-
-        menuButton.setAttribute("aria-expanded", "false");
-
-        menuButton.setAttribute("aria-label", "Open navigation menu");
-
-        mobileNavigation.classList.remove("is-open");
-
-    });
-
-});
-
-const mobileBreakpoint = window.matchMedia("(max-width: 768px)");
-
-function resetMobileMenu() {
-
-    if (!mobileBreakpoint.matches) {
-
-        menuButton.setAttribute("aria-expanded", "false");
-
-        menuButton.setAttribute("aria-label", "Open navigation menu");
-
-        mobileNavigation.classList.remove("is-open");
-
-    }
-
-}
-
-mobileBreakpoint.addEventListener("change", resetMobileMenu);
 
 /* ===== Scroll Reveal ===== */
 
@@ -144,8 +189,8 @@ if (!("IntersectionObserver" in window)) {
                 if (!entry.isIntersecting) return;
 
                 entry.target.classList.add("is-visible");
-                observer.unobserve(entry.target);
 
+                observer.unobserve(entry.target);
             });
 
         },
