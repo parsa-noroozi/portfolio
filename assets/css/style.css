@@ -268,6 +268,8 @@ body {
 
     gap: var(--space-4);
 
+    flex-wrap: wrap;
+
 }
 
 .hero-signature {
@@ -382,7 +384,7 @@ body {
 
 .hero-image img {
 
-    width: 220px;
+    width: min(220px, 65vw);
 
     aspect-ratio: 1;
 
@@ -410,12 +412,9 @@ body {
 
 }
 
-.ce-card {
-
+.evidence-card {
     text-align: center;
-
     padding: 1.5rem;
-
 }
 
 .evidence-card:not(:last-child) {
@@ -1051,10 +1050,10 @@ body {
     }
 
     .evidence-card {
-    padding: 1rem;
-    border-right: none;
-    border-bottom: 1px solid var(--color-border);
-}
+        padding: 1rem;
+        border-right: none;
+        border-bottom: 1px solid var(--color-border);
+    }
 
     .evidence-card:last-child {
 
@@ -1085,11 +1084,7 @@ body {
     }
 
     .project-preview {
-
         min-height: 170px;
-
-        margin: 2rem 0;
-
     }
 
     .project-summary {
@@ -1116,12 +1111,41 @@ body {
 
     }
 
-    main {
+
+
+}
+
+@media (max-width: 480px) {
+    .nav-container {
+        width: calc(100% - 1rem);
+        padding-inline: 1.25rem;
+    }
+
+    .hero {
         padding-top: 5rem;
     }
 
+    .hero-title {
+        font-size: clamp(2.25rem, 12vw, 3rem);
+    }
 
+    .hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
 
+    .hero-actions .btn {
+        width: 100%;
+    }
+
+    .project-outcome {
+        font-size: clamp(2rem, 12vw, 3rem);
+    }
+
+    .contact-email {
+        width: 100%;
+        overflow-wrap: anywhere;
+    }
 }
 
 /* ===== Scroll Reveal ===== */
