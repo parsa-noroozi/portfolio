@@ -8,9 +8,23 @@ const brand = document.querySelector(".brand");
 
 const mobileBreakpoint = window.matchMedia("(max-width: 768px)");
 
+const skipLink = document.querySelector(".skip-link");
+const mainContent = document.querySelector("#main-content");
+
 let lastScrollY = window.scrollY;
 let isAnchorNavigation = false;
 let anchorNavigationTimeout;
+
+
+/* ===== Keyboard Navigation ===== */
+
+navContainer.addEventListener("focusin", () => {
+    navContainer.classList.remove("nav-hidden");
+});
+
+skipLink.addEventListener("click", () => {
+    mainContent.focus();
+});
 
 
 /* ===== Mobile Menu ===== */
@@ -138,12 +152,14 @@ window.addEventListener(
         const isMobileMenuOpen =
             menuButton.getAttribute("aria-expanded") === "true";
 
-        /*
-         * Never hide the navbar while:
-         * - navigating to an anchor
-         * - the mobile menu is open
-         */
-        if (isAnchorNavigation || isMobileMenuOpen) {
+        const isFocusWithinNavbar =
+            navContainer.contains(document.activeElement);
+
+        if (
+            isAnchorNavigation ||
+            isMobileMenuOpen ||
+            isFocusWithinNavbar
+        ) {
             navContainer.classList.remove("nav-hidden");
             lastScrollY = currentScrollY;
             return;
@@ -158,9 +174,7 @@ window.addEventListener(
         ) {
             navContainer.classList.add("nav-hidden");
             lastScrollY = currentScrollY;
-
         } else if (scrollDifference < -40) {
-
             navContainer.classList.remove("nav-hidden");
             lastScrollY = currentScrollY;
         }

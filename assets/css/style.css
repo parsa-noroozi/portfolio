@@ -18,6 +18,36 @@ body {
     line-height: 1.6;
 }
 
+/* ===== Keyboard Focus ===== */
+
+:focus-visible {
+    outline: 3px solid var(--color-accent);
+    outline-offset: 3px;
+}
+
+.skip-link {
+    position: fixed;
+    top: 1rem;
+    left: 1rem;
+    z-index: 1100;
+
+    padding: .75rem 1rem;
+
+    background: var(--color-text);
+    color: var(--color-background);
+
+    border-radius: var(--radius-md);
+    text-decoration: none;
+
+    transform: translateY(calc(-100% - 2rem));
+    transition: transform .2s ease;
+}
+
+.skip-link:focus-visible {
+    transform: translateY(0);
+}
+
+
 /* ===== Navbar ===== */
 
 .site-header {
@@ -99,7 +129,8 @@ body {
 
 }
 
-.brand:hover {
+.brand:hover,
+.brand:focus-visible {
     color: var(--color-accent-hover);
 }
 
@@ -133,7 +164,8 @@ body {
 
 }
 
-.nav-links a:hover {
+.nav-links a:hover,
+.nav-links a:focus-visible {
     color: var(--color-text);
 }
 
@@ -161,6 +193,11 @@ body {
 
     gap: 5px;
 
+}
+
+.menu-button:focus-visible {
+    outline: 3px solid var(--color-accent);
+    outline-offset: 4px;
 }
 
 .mobile-navigation {
@@ -369,7 +406,8 @@ body {
 
 }
 
-.btn-secondary:hover {
+.btn-secondary:hover,
+.btn-secondary:focus-visible {
     background: white;
     border-color: var(--color-accent);
 }
